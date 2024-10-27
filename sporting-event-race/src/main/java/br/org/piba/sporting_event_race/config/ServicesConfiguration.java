@@ -22,7 +22,7 @@ public class ServicesConfiguration {
     }
 
     @Bean
-    public TimingAthleteService getTimingService(AthleteDataRepository repository){
+    public TimingAthleteService getTimingAthleteService(AthleteDataRepository repository){
         return new TimingAthleteService(repository);
     }
 

@@ -8,7 +8,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
-@RequestMapping("athlete")
+@RequestMapping("/atletas")
 public class AthleteController {
 
     private final AthleteService athleteService;

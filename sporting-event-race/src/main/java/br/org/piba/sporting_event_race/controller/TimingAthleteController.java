@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
-@RequestMapping("/timing")
+@RequestMapping("/cronometros")
 public class TimingAthleteController {
     private final TimingAthleteService timingAthleteService;
 
