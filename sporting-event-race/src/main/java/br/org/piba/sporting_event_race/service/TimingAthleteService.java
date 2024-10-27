@@ -7,21 +7,20 @@ import br.org.piba.sporting_event_race.repository.AthleteDataRepository;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import java.text.MessageFormat;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.NoSuchElementException;
 import java.util.Optional;
 
-public class TimingService {
-    private final static Logger LOGGER= LoggerFactory.getLogger(TimingService.class);
+public class TimingAthleteService {
+    private final static Logger LOGGER= LoggerFactory.getLogger(TimingAthleteService.class);
     private final AthleteDataRepository repository;
 
-    public TimingService(AthleteDataRepository repository) {
+    public TimingAthleteService(AthleteDataRepository repository) {
         this.repository = repository;
     }
 
-    public RegistersTimingDTO addTimings(final RegistersTimingDTO timingsDTO){
+    public RegistersTimingDTO addTimingToAthlete(final RegistersTimingDTO timingsDTO){
         List<RegisterTimingDTO> registered = new ArrayList<>();
         timingsDTO.registersTiming()
                 .stream()

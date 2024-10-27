@@ -4,7 +4,7 @@ import br.org.piba.sporting_event_race.repository.AthleteDataRepository;
 import br.org.piba.sporting_event_race.repository.SegmentRepository;
 import br.org.piba.sporting_event_race.service.AthleteService;
 import br.org.piba.sporting_event_race.service.SegmentService;
-import br.org.piba.sporting_event_race.service.TimingService;
+import br.org.piba.sporting_event_race.service.TimingAthleteService;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
@@ -22,8 +22,8 @@ public class ServicesConfiguration {
     }
 
     @Bean
-    public TimingService getTimingService(AthleteDataRepository repository){
-        return new TimingService(repository);
+    public TimingAthleteService getTimingService(AthleteDataRepository repository){
+        return new TimingAthleteService(repository);
     }
 
     @Bean
