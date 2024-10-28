@@ -4,5 +4,5 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 
 import java.util.List;
 
-public record Classifications(@JsonProperty("dados") List<Classification> classifications) {
+public record ListDataDTO<T> (@JsonProperty("dados") List<T> data){
 }

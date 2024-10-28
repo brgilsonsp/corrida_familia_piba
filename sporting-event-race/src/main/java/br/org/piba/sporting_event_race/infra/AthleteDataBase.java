@@ -1,7 +1,7 @@
-package br.org.piba.sporting_event_race.repository;
+package br.org.piba.sporting_event_race.infra;
 
 import br.org.piba.sporting_event_race.model.domain.AthleteData;
-import br.org.piba.sporting_event_race.model.domain.Gender;
+import br.org.piba.sporting_event_race.model.enumaration.GenderEnum;
 
 import java.time.LocalDate;
 import java.time.Month;
@@ -9,9 +9,9 @@ import java.util.*;
 
 public class AthleteDataBase {
 
-    private static final Map<String, Gender> NAME_GENDER_MAP;
-    private static final Gender MALE = Gender.MALE;
-    private static final Gender FEMALE = Gender.FEMALE;
+    private static final Map<String, GenderEnum> NAME_GENDER_MAP;
+    private static final GenderEnum MALE = GenderEnum.MALE;
+    private static final GenderEnum FEMALE = GenderEnum.FEMALE;
     private static final int MIN_AGE = 6;
     private static final int MAX_AGE = 70;
     private final static Map<UUID, AthleteData> ATHLETES;
@@ -60,8 +60,8 @@ public class AthleteDataBase {
 
     }
 
-    private static AthleteData buildAthlete(final String name, final Gender gender){
-        return new AthleteData(name, gender, getRandomBirthDate());
+    private static AthleteData buildAthlete(final String name, final GenderEnum genderEnum){
+        return new AthleteData(name, genderEnum, getRandomBirthDate());
     }
 
     private static LocalDate getRandomBirthDate() {

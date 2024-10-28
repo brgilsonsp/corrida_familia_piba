@@ -1,38 +1,69 @@
 package br.org.piba.sporting_event_race.config;
 
+import br.org.piba.sporting_event_race.repository.AthleteDataMockRepository;
 import br.org.piba.sporting_event_race.repository.AthleteDataRepository;
+import br.org.piba.sporting_event_race.repository.SegmentMockRepository;
 import br.org.piba.sporting_event_race.repository.SegmentRepository;
-import br.org.piba.sporting_event_race.service.AthleteService;
-import br.org.piba.sporting_event_race.service.SegmentService;
-import br.org.piba.sporting_event_race.service.TimingAthleteService;
+import br.org.piba.sporting_event_race.service.*;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
+import java.time.LocalDateTime;
+
 @Configuration
 public class ServicesConfiguration {
+    private final LocalDateTime localTime;
+
+    public ServicesConfiguration() {
+        this.localTime = LocalDateTime.now().minusHours(1).withMinute(0).withSecond(0).withNano(0);
+    }
 
     @Bean
     public AthleteDataRepository getAthleteDataRepository(){
-        return new AthleteDataRepository();
+        return new AthleteDataMockRepository();
     }
 
     @Bean
     public SegmentRepository getAgeRangeDataBase(){
-        return new SegmentRepository();
+        return new SegmentMockRepository();
     }
 
     @Bean
-    public TimingAthleteService getTimingAthleteService(AthleteDataRepository repository){
-        return new TimingAthleteService(repository);
+    public StartRaceService getStartRaceService(){
+        return new StartRaceServiceMock(localTime);
+    }
+
+    @Bean
+    public TimingAthleteService getTimingAthleteService(AthleteDataRepository repository,
+                                                        StartRaceService startRaceService){
+        return new TimingAthleteServiceImpl(repository, startRaceService);
     }
 
     @Bean
     public AthleteService getAthleteService(AthleteDataRepository repository){
-        return new AthleteService(repository);
+        return new AthleteServiceImpl(repository);
     }
 
     @Bean
     public SegmentService getSegmentService(SegmentRepository repository){
-        return new SegmentService(repository);
+        return new SegmentServiceImpl(repository);
     }
+
+    @Bean
+    public DefinitionClassificationTypeService getDefinitionClassificationTypeService(){
+        return new DefinitionClassificationTypeServiceImpl();
+    }
+
+    @Bean
+    public ClassificationDefinitionService getClassificationDefinitionService(){
+        return new ClassificationDefinitionServiceImpl();
+    }
+
+    @Bean
+    public ClassificationAthletesService getClassificationAthletesService(AthleteDataRepository athleteRepository,
+                                                                          ClassificationDefinitionService classificationDefinitionService,
+                                                                          SegmentRepository repository){
+        return new ClassificationAthletesServiceImpl(athleteRepository, classificationDefinitionService, repository);
+    }
+
 }

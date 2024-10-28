@@ -1,5 +1,7 @@
 package br.org.piba.sporting_event_race.model.domain;
 
+import br.org.piba.sporting_event_race.model.enumaration.GenderEnum;
+
 import java.time.Duration;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
@@ -11,19 +13,18 @@ public class AthleteData {
 
     private final UUID id;
     private final String name;
-    private final Gender gender;
+    private final GenderEnum genderEnum;
     private final LocalDate birthDate;
     private int number;
-    private final LocalTime startTime;
-    private LocalTime arrivalTime;
+    private LocalDateTime startTime;
+    private LocalDateTime arrivalTime;
     private String operator;
 
-    public AthleteData(String name, Gender gender, LocalDate birthDate) {
+    public AthleteData(String name, GenderEnum genderEnum, LocalDate birthDate) {
         this.name = name;
-        this.gender = gender;
+        this.genderEnum = genderEnum;
         this.birthDate = birthDate;
         id = UUID.randomUUID();
-        startTime = LocalTime.now().minusHours(1);
     }
 
     public UUID getId() {
@@ -34,8 +35,8 @@ public class AthleteData {
         return name;
     }
 
-    public Gender getGender() {
-        return gender;
+    public GenderEnum getGender() {
+        return genderEnum;
     }
 
     public LocalDate getBirthDate() {
@@ -50,11 +51,15 @@ public class AthleteData {
         this.operator = operator;
     }
 
-    public LocalTime getArrivalTime() {
+    public void setStartTime(LocalDateTime startTime) {
+        this.startTime = startTime;
+    }
+
+    public LocalDateTime getArrivalTime() {
         return arrivalTime;
     }
 
-    public void setArrivalTime(LocalTime arrivalTime) {
+    public void setArrivalTime(LocalDateTime arrivalTime) {
         this.arrivalTime = arrivalTime;
     }
 
@@ -66,17 +71,24 @@ public class AthleteData {
         this.number = number;
     }
 
-    public LocalTime getStartTime() {
+    public LocalDateTime getStartTime() {
         return startTime;
     }
 
     public Duration totalRaceTime(){
-        if(Objects.isNull(arrivalTime)){
-            arrivalTime = LocalTime.now();
+        if(Objects.isNull(arrivalTime) || Objects.isNull(startTime)){
+            return Duration.ZERO;
         }
-
         return Duration.between(startTime, arrivalTime);
+    }
 
+    public String getFormattedTotalRaceTime() {
+        final Duration duration = totalRaceTime();
+        final long hours = duration.toHours();
+        final long minutes = duration.toMinutesPart();
+        final long seconds = duration.toSecondsPart();
+        final long nanos = duration.toNanosPart();
+        return String.format("%02d:%02d:%02d.%09d", hours, minutes, seconds, nanos);
     }
 
     @Override
@@ -97,7 +109,7 @@ public class AthleteData {
         return "AthleteData{" +
                 "id=" + id +
                 ", name='" + name + '\'' +
-                ", gender=" + gender +
+                ", gender=" + genderEnum +
                 ", birthDate=" + birthDate +
                 ", number=" + number +
                 ", startTime=" + startTime +

@@ -11,14 +11,14 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 @RequestMapping("/cronometros")
 public class TimingAthleteController {
-    private final TimingAthleteService timingAthleteService;
+    private final TimingAthleteService timingAthleteServiceImpl;
 
-    public TimingAthleteController(TimingAthleteService timingAthleteService) {
-        this.timingAthleteService = timingAthleteService;
+    public TimingAthleteController(TimingAthleteService timingAthleteServiceImpl) {
+        this.timingAthleteServiceImpl = timingAthleteServiceImpl;
     }
 
     @PostMapping
     public ResponseEntity<RegistersTimingDTO> addTimingAthlete(@RequestBody RegistersTimingDTO timingsDTO){
-        return ResponseEntity.ok(timingAthleteService.addTimingToAthlete(timingsDTO));
+        return ResponseEntity.ok(timingAthleteServiceImpl.addTimingToAthlete(timingsDTO));
     }
 }
