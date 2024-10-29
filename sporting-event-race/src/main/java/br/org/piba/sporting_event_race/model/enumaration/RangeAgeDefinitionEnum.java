@@ -1,8 +1,7 @@
 package br.org.piba.sporting_event_race.model.enumaration;
 
-import br.org.piba.sporting_event_race.exception.GenderNotFoundException;
+import br.org.piba.sporting_event_race.exception.RangeAgeNotFoundException;
 
-import java.util.Arrays;
 
 public enum RangeAgeDefinitionEnum {
 
@@ -14,7 +13,8 @@ public enum RangeAgeDefinitionEnum {
     THIRTY_ONE_TO_FOURTH("31 - 40"),
     FOURTH_ONE_TO_FIFTH("41 - 50"),
     FIFTH_ONE_TO_SIXTH("51 - 60"),
-    SIXTH_ONE_OR_MORE("61+");
+    SIXTH_ONE_OR_MORE("61+"),
+    ALL("Todas");
 
     private final String value;
 
@@ -27,8 +27,11 @@ public enum RangeAgeDefinitionEnum {
 
     public static RangeAgeDefinitionEnum getEnum(final String ageRange){
         final String range = ageRange.trim().length() == 2 ? ageRange.trim()+"+": ageRange;
-        return Arrays.stream(RangeAgeDefinitionEnum.values()).filter(e -> e.getValue().equals(range))
-                .findFirst()
-                .orElseThrow(() -> new GenderNotFoundException("Faixa etária informada não existe: " + range));
+        for(RangeAgeDefinitionEnum rangeEnum : RangeAgeDefinitionEnum.values()){
+            if(rangeEnum.getValue().equalsIgnoreCase(range)){
+                return rangeEnum;
+            }
+        }
+        throw new RangeAgeNotFoundException("Faixa etária informada não existe: " + range);
     }
 }

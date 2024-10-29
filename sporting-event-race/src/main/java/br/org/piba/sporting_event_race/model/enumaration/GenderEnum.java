@@ -2,12 +2,11 @@ package br.org.piba.sporting_event_race.model.enumaration;
 
 import br.org.piba.sporting_event_race.exception.GenderNotFoundException;
 
-import java.util.Arrays;
-
 public enum GenderEnum {
 
     MALE("Masculino"),
-    FEMALE("Feminino");
+    FEMALE("Feminino"),
+    ALL("Todos");
 
     private final String value;
 
@@ -20,8 +19,11 @@ public enum GenderEnum {
     }
 
     public static GenderEnum getEnum(final String gender){
-        return Arrays.stream(GenderEnum.values()).filter(e -> e.getValue().equals(gender))
-                .findFirst()
-                .orElseThrow(() -> new GenderNotFoundException("Sexo informado não existe: " + gender));
+        for(GenderEnum genderEnum : GenderEnum.values()){
+            if(genderEnum.getValue().equalsIgnoreCase(gender)){
+                return genderEnum;
+            }
+        }
+        throw new GenderNotFoundException("Sexo informado não existe: " + gender);
     }
 }
