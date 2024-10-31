@@ -6,11 +6,6 @@ import java.util.List;
 
 public interface ClassificationAthletesService {
 
-    List<ClassificationDTO> getClassificationByGender(String gender);
+    List<ClassificationDTO> getClassificationBy(String gender, String ageRange, String category);
 
-    List<ClassificationDTO> getClassificationByAgeRange(String ageRange);
-
-    List<ClassificationDTO> getClassificationByGenderAndAgeRange(String gender, String ageRange);
-
-    List<ClassificationDTO> getClassificationGeneral();
 }

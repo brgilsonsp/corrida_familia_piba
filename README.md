@@ -4,12 +4,13 @@ Controle do tempo de corrida de cada participante do evento Corrida da Familia d
 # Curl para invocar os endpoints
 
 ### Obter todos nomes cadastrados, filtrando pelo inicio do nome
-curl --location 'http://localhost:8080/athlete?start_name=m'
+curl --location 'http://localhost:9111/athlete?start_name=m'
+
 
 ### Adiciona o número do atleta
 Deve obter o id do atleta através da requisição acima
 
-curl --location --request PUT 'http://localhost:8080/athlete' \
+curl --location --request PUT 'http://localhost:9111/athlete' \
 --header 'Content-Type: application/json' \
 --data '{
     "id": "b8b0e2aa-c5ab-4475-9fa8-3d5c24e2315f",
@@ -20,7 +21,7 @@ curl --location --request PUT 'http://localhost:8080/athlete' \
 ### Adiciona o tempo que o atleta concluiu a corrida
 Pode enviar mais um elemento. O numero_atleta deve ser o que foi cadastrado acima. O operador é o usuário que está registrando o cronometro
 
-curl --location 'http://localhost:8080/timing' \
+curl --location 'http://localhost:9111/timing' \
 --header 'Content-Type: application/json' \
 --data '{
     "dados": [
@@ -35,7 +36,26 @@ curl --location 'http://localhost:8080/timing' \
 
 ### Obtém os segmentos cadastrados
 
-curl --location 'http://localhost:8080/segment'
+curl --location 'http://localhost:9111/segment'
+
+
+### Adiciona o cronometro
+
+curl --location 'http://localhost:9111/corre-familia/cronometros' \
+--header 'Content-Type: application/json' \
+--data '{
+    "dados": [
+        {
+            "operador": "Carlos",
+            "numero_atleta" : 234521,
+            "momento_chegada": "22:10:07.378000"
+        }
+    ]
+}'
+
+### Obtém a classificação. É possível filtrar pelos campos da categoria
+
+curl --location 'http://localhost:9111/corre-familia/classificacoes?sexo=Todos&faixa_etaria=16%20-%2020&categoria=Caminhada'
 
 
 # Executar a aplicação

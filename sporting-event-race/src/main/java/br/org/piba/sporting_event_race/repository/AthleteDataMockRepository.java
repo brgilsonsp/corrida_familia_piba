@@ -2,6 +2,7 @@ package br.org.piba.sporting_event_race.repository;
 
 import br.org.piba.sporting_event_race.infra.AthleteDataBase;
 import br.org.piba.sporting_event_race.model.domain.AthleteData;
+import br.org.piba.sporting_event_race.model.enumaration.CategoryEnum;
 import br.org.piba.sporting_event_race.model.enumaration.GenderEnum;
 
 import java.time.LocalDate;
@@ -58,10 +59,13 @@ public class AthleteDataMockRepository implements AthleteDataRepository {
     }
 
     @Override
-    public List<AthleteData> getListBy(final int minAge, final int maxAge, final GenderEnum genderEnum){
+    public List<AthleteData> getListBy(final int minAge, final int maxAge,
+                                       final GenderEnum genderEnum,
+                                       final CategoryEnum categoryEnum){
         return ATHLETES.values().stream()
-                .filter(athlete -> genderEnum.equals(athlete.getGender()))
+                .filter(athlete -> GenderEnum.ALL.equals(genderEnum) || genderEnum.equals(athlete.getGender()))
                 .filter(athlete -> isAgeRange(athlete.getBirthDate(), minAge, maxAge))
+                .filter(athleteData -> CategoryEnum.ALL.equals(categoryEnum) || categoryEnum.equals(athleteData.getCategory()))
                 .toList();
     }
 

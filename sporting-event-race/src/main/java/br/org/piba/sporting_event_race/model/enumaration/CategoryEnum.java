@@ -17,7 +17,7 @@ public enum CategoryEnum {
         return value;
     }
 
-    public CategoryEnum getEnum(final String value){
+    public static CategoryEnum getEnum(final String value){
         for(CategoryEnum categoryEnum : CategoryEnum.values()){
             if(categoryEnum.getValue().equalsIgnoreCase(value)){
                 return categoryEnum;

@@ -1,6 +1,7 @@
 package br.org.piba.sporting_event_race.repository;
 
 import br.org.piba.sporting_event_race.model.domain.AthleteData;
+import br.org.piba.sporting_event_race.model.enumaration.CategoryEnum;
 import br.org.piba.sporting_event_race.model.enumaration.GenderEnum;
 
 import java.util.List;
@@ -21,7 +22,7 @@ public interface AthleteDataRepository {
 
     List<AthleteData> getListBy(int minAge, int maxAge);
 
-    List<AthleteData> getListBy(int minAge, int maxAge, GenderEnum genderEnum);
+    List<AthleteData> getListBy(int minAge, int maxAge, GenderEnum genderEnum, CategoryEnum categoryEnum);
 
     List<AthleteData> getListAll();
 }

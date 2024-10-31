@@ -47,11 +47,6 @@ public class ServicesConfiguration {
     }
 
     @Bean
-    public DefinitionClassificationTypeService getDefinitionClassificationTypeService(){
-        return new DefinitionClassificationTypeServiceImpl();
-    }
-
-    @Bean
     public ClassificationDefinitionService getClassificationDefinitionService(){
         return new ClassificationDefinitionServiceImpl();
     }
