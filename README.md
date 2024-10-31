@@ -50,4 +50,13 @@ $ cd ./corrida_familia_piba/sporting-event-race
 
 Depois execute o seguinte comando
 
-./mvnw spring-boot:run
+./mvnw spring-boot:run 
+
+#### Mock para a Classificação
+
+Caso queira testar apenas o endpint de classificação, a aplicação pode injetar dados de cronometro, operador, número do atleta e 
+hora do inicio da corrida.
+
+Para isso, deve passar uma propriedade ```mock``` com o valor ```true```, por exemplo
+
+$ java -Dmock=true -jar .\sporting-event-race.jar

@@ -22,7 +22,7 @@ public class AthleteController {
     @GetMapping
     public ResponseEntity<ListDataDTO<AthleteFullNameRegisterDTO>> getFullName(@RequestParam("start_name") String startName){
         final List<AthleteFullNameRegisterDTO> listFullName = athleteServiceMock.getListFullName(startName);
-        return ResponseEntity.ok(new ListDataDTO(listFullName));
+        return ResponseEntity.ok(new ListDataDTO<>(listFullName));
     }
 
     @PutMapping

@@ -16,15 +16,24 @@ public class ClassificationDefinitionServiceImpl implements ClassificationDefini
         List<ClassificationDTO> classifications = new ArrayList<>();
         for (int i = 0; i < athletes.get(StatusTimerEnum.WITH_TIMER).size(); i++) {
             AthleteData data = athletes.get(StatusTimerEnum.WITH_TIMER).get(i);
-            classifications
-                    .add(new ClassificationDTO(i+1, data.getName(), data.getFormattedTotalRaceTime()));
+            classifications.add(mapperToClassificationDTO(i + 1, data));
         }
         for(AthleteData data : athletes.get(StatusTimerEnum.NO_TIMER)){
-            classifications
-                    .add(new ClassificationDTO(POSITION_ZERO, data.getName(), data.getFormattedTotalRaceTime()));
+            classifications.add(mapperToClassificationDTO(POSITION_ZERO, data));
         }
 
         return classifications;
+    }
+
+    private static ClassificationDTO mapperToClassificationDTO(final int position, final AthleteData data) {
+        return new ClassificationDTO(position,
+                data.getName(),
+                data.getFormattedTotalRaceTime(),
+                data.calculateAge(),
+                data.getGender().getValue(),
+                data.getNumber(),
+                data.getCategory().getValue(),
+                data.getOperator());
     }
 
     @Override

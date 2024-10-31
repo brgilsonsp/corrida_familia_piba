@@ -12,11 +12,8 @@ import java.time.LocalDateTime;
 
 @Configuration
 public class ServicesConfiguration {
-    private final LocalDateTime localTime;
-
-    public ServicesConfiguration() {
-        this.localTime = LocalDateTime.now().minusHours(1).withMinute(0).withSecond(0).withNano(0);
-    }
+    public static final LocalDateTime START_TIME = LocalDateTime.now()
+            .minusHours(1).withMinute(0).withSecond(0).withNano(0);
 
     @Bean
     public AthleteDataRepository getAthleteDataRepository(){
@@ -30,7 +27,7 @@ public class ServicesConfiguration {
 
     @Bean
     public StartRaceService getStartRaceService(){
-        return new StartRaceServiceMock(localTime);
+        return new StartRaceServiceMock(START_TIME);
     }
 
     @Bean
