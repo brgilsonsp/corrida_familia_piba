@@ -3,44 +3,32 @@ Controle do tempo de corrida de cada participante do evento Corrida da Familia d
 
 # Curl para invocar os endpoints
 
-### Obter todos nomes cadastrados, filtrando pelo inicio do nome
-curl --location 'http://localhost:9111/athlete?start_name=m'
+### Obter todos nomes cadastrados
+É possível filtrar pelo inicio do nome
+
+```curl
+curl --location 'http://localhost:9111/corre-familia/atletas?start_name='
+```
+
 
 
 ### Adiciona o número do atleta
 Deve obter o id do atleta através da requisição acima
 
-curl --location --request PUT 'http://localhost:9111/athlete' \
+```curl
+curl --location --request PUT 'http://localhost:9111/corre-familia/atletas' \
 --header 'Content-Type: application/json' \
 --data '{
-    "id": "b8b0e2aa-c5ab-4475-9fa8-3d5c24e2315f",
-    "numero_atleta": 2345
+    "id": "c65539e4-5b3a-4b4e-93d9-975d18920c55",
+    "numero_atleta": 234521
 }'
+```
 
 
 ### Adiciona o tempo que o atleta concluiu a corrida
 Pode enviar mais um elemento. O numero_atleta deve ser o que foi cadastrado acima. O operador é o usuário que está registrando o cronometro
 
-curl --location 'http://localhost:9111/timing' \
---header 'Content-Type: application/json' \
---data '{
-    "dados": [
-        {
-            "operador": "Carlos",
-            "numero_atleta" : 2345,
-            "momento_chegada": "19:44:27.7261612"
-        }
-    ]
-}'
-
-
-### Obtém os segmentos cadastrados
-
-curl --location 'http://localhost:9111/segment'
-
-
-### Adiciona o cronometro
-
+```curl
 curl --location 'http://localhost:9111/corre-familia/cronometros' \
 --header 'Content-Type: application/json' \
 --data '{
@@ -52,10 +40,23 @@ curl --location 'http://localhost:9111/corre-familia/cronometros' \
         }
     ]
 }'
+```
 
-### Obtém a classificação. É possível filtrar pelos campos da categoria
 
+### Obtém os segmentos cadastrados
+
+```curl
+curl --location 'http://localhost:9111/corre-familia/segmentos'
+```
+
+
+### Obtém a classificação. 
+
+É possível filtrar pelos campos da categoria
+
+```curl
 curl --location 'http://localhost:9111/corre-familia/classificacoes?sexo=Todos&faixa_etaria=16%20-%2020&categoria=Caminhada'
+```
 
 
 # Executar a aplicação
@@ -66,11 +67,15 @@ Deve fazer o clone para o seu repositório localhost
 
 Acesse o diretório do projeto e execute o seguinte comando que está a aplicação
 
+```bash
 $ cd ./corrida_familia_piba/sporting-event-race
+```
 
 Depois execute o seguinte comando
 
-./mvnw spring-boot:run 
+```bash
+$ ./mvnw spring-boot:run
+```
 
 #### Mock para a Classificação
 
@@ -79,4 +84,6 @@ hora do inicio da corrida.
 
 Para isso, deve passar uma propriedade ```mock``` com o valor ```true```, por exemplo
 
+```bash
 $ java -Dmock=true -jar .\sporting-event-race.jar
+```
