@@ -2,6 +2,9 @@
 Controle do tempo de corrida de cada participante do evento Corrida da Familia da PIBA
 
 # Curl para invocar os endpoints
+Segue os comandos ```curl``` para serem utilizados como base.
+
+No diretório ./designer possui a [collection Postman ](./designer/Sporting%20Event%20Race.postman_collection.json) 
 
 ### Obter todos nomes cadastrados
 É possível filtrar pelo inicio do nome

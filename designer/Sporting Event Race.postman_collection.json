@@ -14,7 +14,7 @@
 					"script": {
 						"exec": [
 							"let response = pm.response.json();\r",
-							"let firstId = response.dados[0].id;\r",
+							"let firstId = response.dados[2].id;\r",
 							"pm.environment.set(\"idAtleta\", firstId);\r",
 							""
 						],
@@ -27,7 +27,7 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "{{url}}/atletas?start_name=mar",
+					"raw": "{{url}}/atletas?start_name=",
 					"host": [
 						"{{url}}"
 					],
@@ -37,7 +37,7 @@
 					"query": [
 						{
 							"key": "start_name",
-							"value": "mar"
+							"value": ""
 						}
 					]
 				}
@@ -66,7 +66,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n    \"id\": \"{{idAtleta}}\",\r\n    \"numero_atleta\": 23451\r\n}",
+					"raw": "{\r\n    \"id\": \"{{idAtleta}}\",\r\n    \"numero_atleta\": 234521\r\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -118,7 +118,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n    \"dados\": [\r\n        {\r\n            \"operador\": \"Carlos\",\r\n            \"numero_atleta\" : {{numeroAtleta}},\r\n            \"momento_chegada\": \"{{horaAtual}}\"\r\n        }\r\n    ]\r\n}",
+					"raw": "{\r\n    \"dados\": [\r\n        {\r\n            \"operador\": \"Carlos\",\r\n            \"numero_atleta\" : 234521,\r\n            \"momento_chegada\": \"{{horaAtual}}\"\r\n        }\r\n    ]\r\n}",
 					"options": {
 						"raw": {
 							"language": "json"
