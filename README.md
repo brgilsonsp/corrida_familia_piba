@@ -14,6 +14,10 @@ A solução é um sistema de software que fará a gestão de um evento de corrid
  * Autenticação. Para o MVP, o front-end irá persistir uma credencial fixa, para efetuar as requisições as APIs
  * Enviar classificação para o atleta. Na tela de classificação, pode ser disparado a respectiva classificação para o e-mail de todos os atletas, evidenciando a sua classificação. O Operador deve informar uma mensagem que será enviada no e-mail
 
+### Diagramas
+
+Consulta [Diagrama caso de uso](./designer/use_case.md)
+
 ## Como utilizar as APIs
 
 Utilize as orientações em [Examples CURL](./designer/exemples_curl.md) 
