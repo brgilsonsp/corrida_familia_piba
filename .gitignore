@@ -34,3 +34,7 @@ build/
 
 ### Draw io ###
 *.drawio.dtmp
+
+### Log files ###
+*.log
+*.gz

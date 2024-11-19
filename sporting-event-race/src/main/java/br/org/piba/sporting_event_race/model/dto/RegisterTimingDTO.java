@@ -8,4 +8,12 @@ public record RegisterTimingDTO(@JsonProperty("operador") String operator,
                                 @JsonProperty("numero_atleta") int athleteNumber,
                                 @JsonProperty("momento_chegada") LocalTime arrivalTime) {
 
+    @Override
+    public String toString() {
+        return "RegisterTimingDTO{" +
+                "operator='" + operator + '\'' +
+                ", athleteNumber=" + athleteNumber +
+                ", arrivalTime=" + arrivalTime +
+                '}';
+    }
 }

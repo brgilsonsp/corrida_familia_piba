@@ -5,4 +5,11 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import java.util.List;
 
 public record RegistersTimingDTO(@JsonProperty("dados") List<RegisterTimingDTO> registersTiming) {
+
+    @Override
+    public String toString() {
+        return "RegistersTimingDTO{" +
+                "registersTiming=" + registersTiming +
+                '}';
+    }
 }
