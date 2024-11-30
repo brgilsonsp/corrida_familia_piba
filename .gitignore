@@ -35,6 +35,9 @@ build/
 ### Draw io ###
 *.drawio.dtmp
 
+### Mermaid ###
+/designer/diagrams/exemplos.md
+
 ### Log files ###
 *.log
 *.gz
@@ -44,3 +47,4 @@ build/
 *.tfstate
 *.tfstate.backup
 .terraform.lock.hcl
+

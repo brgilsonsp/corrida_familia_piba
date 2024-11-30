@@ -1,7 +1,7 @@
 # Exemplos curl
 Segue os comandos ```curl``` para serem utilizados como base.
 
-Utilize a [collection Postman ](./Sporting%20Event%20Race.postman_collection.json) 
+Utilize a [collection Postman ](Sporting%20Event%20Race.postman_collection.json) 
 
 ### Obter todos nomes cadastrados
 É possível filtrar pelo inicio do nome
