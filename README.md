@@ -42,6 +42,7 @@ A solução é um sistema de software que fará a gestão de um evento de corrid
 
 ## Diagramas
  - [Visão do contexto](designer/diagrams/context_diagram.md)
+ - [Visão dos containêres](designer/diagrams/conteiner_diagram.md)
  - [Diagrama se sequencia](designer/diagrams/sequence_general.md)
 
 ## Como utilizar as APIs
