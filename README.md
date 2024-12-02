@@ -46,6 +46,7 @@ A solução é um sistema de software que fará a gestão de um evento de corrid
      - [Cadastro dos números de peito](designer/diagrams/features/add_chester_number.md)
      - [Configura números de peito aos atletas](designer/diagrams/features/config_chester_number.md)
      - [Obten número de peito aos atletas](designer/diagrams/features/get_chester_number_athtletes.md)
+   - [Sincronizar hora celular](designer/diagrams/features/sync_hour.md)
 
 ## Como utilizar as APIs
 Utilize as orientações em [examples CURL](designer/contracts/exemples_curl.md) 
