@@ -4,7 +4,7 @@ sequenceDiagram
     
     actor Atleta as Atleta
     participant Servico_Parceiro as Organizador do evento
-    participant Aplicativo as Aplicativo
+    participant API as API
     participant DB as Banco de dados
     actor Admin as Administrador
 
@@ -13,20 +13,20 @@ sequenceDiagram
     Servico_Parceiro-->>Atleta: Confirma inscrição
 
 %% Obtém dados
-    Admin->>Aplicativo: Atualiza base de atletas
-    Aplicativo->>Servico_Parceiro: Envia credenciais
-    Servico_Parceiro-->>Aplicativo: Fornece token de acesso
-    Aplicativo->>Servico_Parceiro: Solicita inscritos no evento
-    Servico_Parceiro-->>Aplicativo: Envia lista dos inscritos
+    Admin->>API: Atualiza base de atletas
+    API->>Servico_Parceiro: Envia credenciais
+    Servico_Parceiro-->>API: Fornece token de acesso
+    API->>Servico_Parceiro: Solicita inscritos no evento
+    Servico_Parceiro-->>API: Envia lista dos inscritos
 
 %% Atualiza registros
     loop
-        Aplicativo->>DB: Consulta registro
-        DB-->>Aplicativo: Retorna
+        API->>DB: Consulta registro
+        DB-->>API: Retorna
         alt Atleta registrado
-            Aplicativo->>DB: Atualiza atleta
+            API->>DB: Atualiza atleta
         else Atleta não registrado
-            Aplicativo->>DB: Salva atleta
+            API->>DB: Salva atleta
         end
     end
 

@@ -3,25 +3,25 @@ sequenceDiagram
     title Associa números de peito aos atletas
 
     actor Admin as Administrador
-    participant Aplicativo as Aplicativo
+    participant API as API
     participant DB as Banco de dados
 
-    Admin->>Aplicativo: Solicita configuração
-    Aplicativo->>DB: Consulta números de peito disponíveis
-    DB-->>Aplicativo: Resultado
+    Admin->>API: Solicita configuração
+    API->>DB: Consulta números de peito disponíveis
+    DB-->>API: Resultado
     alt Não encontrado
-        Aplicativo-->>Admin: Erro
+        API-->>Admin: Erro
     end
-    Aplicativo->>DB: Consulta atletas sem número de peito
-    DB-->>Aplicativo: Resultado
+    API->>DB: Consulta atletas sem número de peito
+    DB-->>API: Resultado
     alt Não encontrado
-        Aplicativo-->>Admin: Sem alteração
+        API-->>Admin: Sem alteração
     end
     alt Núm peito insuficiente
-        Aplicativo-->>Admin: Erro Número de peito insuficiente
+        API-->>Admin: Erro Número de peito insuficiente
     end
     loop Atletas sem núm peito
-        Aplicativo->>DB: Associa número de peito ao atleta
+        API->>DB: Associa número de peito ao atleta
     end
-    Aplicativo-->>Admin: Sucesso
+    API-->>Admin: Sucesso
 ```
