@@ -19,6 +19,8 @@ Facilitar o checkin do atleta e a captura do tempo da corrida/caminhada, onde se
 ## Detalhes da solução
 A solução é um sistema de software que fará a gestão de um evento de corrida e/ou caminhada. O software deve fornecer as seguintes funcionalidades com suas respectivas regras:
  * Obter atletas: A solução deve consultar uma API de um parceiro para obter todos os atletas inscritos. Esse processo será efetuado através de uma rotina batch, apenas no back-end
+ * Cadastro número de peito: A solução deve cadastrar todos os números de peito disponíveis
+ * Configurar número de peito: A solução deve configurar um número de peito para um respectivo atleta e fornecer fornecer um relatório da configuração efetuada
  * Sincronismo da hora do celular: O colaborador deve sincronizar a data e hora do seu celular com o servidor. Assim que acessar o aplicativo, será solicitado a hora do servidor para sincronizar o horário do celular. Com essa feature podemos garantir que todos os colaboradores estarão com o mesmo horário em seus respectivos celulares.
  * Checkin: Um colaborador irá efetuar marcar que o atleta compareceu ao evento. O atleta deverá apresentar um documento com foto, que com o CPF/RNE. A consulta do regitrso do atleta será com o número do documento que foi efetuado a inscrição
  * Cronometragem: Um colaborador fará a captura do tempo exato que o atleta cruzou a linha de chegada, associando ao número de peito do atleta. Esse dado ficará salvo no celular do colaborador para ser enviado em um momento posterior.
@@ -38,7 +40,8 @@ A solução é um sistema de software que fará a gestão de um evento de corrid
 ## Diagramas
  - [Fluxo do Evento Visão negócio](designer/diagrams/business_event_flow.md)
  - [Visão Geral](designer/diagrams/conteiner_diagram.md)
- - [Diagrama se sequencia](designer/diagrams/sequence_general.md)
+ - Detalhes de cada funcionalidade
+   - [Obter dados dos inscritos](designer/diagrams/features/get_athletes.md)
 
 ## Como utilizar as APIs
 Utilize as orientações em [examples CURL](designer/contracts/exemples_curl.md) 
