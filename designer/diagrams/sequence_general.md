@@ -5,7 +5,7 @@ sequenceDiagram
     actor Atleta as Atleta
     actor Colaborador as Colaborador
     participant Aplicativo as Aplicativo
-    participant API_Parceiro as API Parceiro
+    participant API_Parceiro as Organizador do evento
 
 %% Inscrição
     Atleta->>API_Parceiro: Realiza inscrição
