@@ -70,4 +70,5 @@ A solução é um sistema de software que fará a gestão de um evento de corrid
 ## Projetos envolvidos
 
  - [API](https://github.com/brgilsonsp/corrida_familia_piba_api)
+ - [Back-end](https://github.com/brgilsonsp/corrida_familia_piba_back)
  - [Front-end](https://github.com/brgilsonsp/corrida_familia_piba_front)
