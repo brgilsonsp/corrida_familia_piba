@@ -23,13 +23,13 @@ A solução é um sistema de software que fará a gestão de um evento de corrid
  * Configurar número de peito: A solução deve configurar um número de peito para um respectivo atleta e fornecer fornecer um relatório da configuração efetuada
  * Sincronismo da hora do celular: O colaborador deve sincronizar a data e hora do seu celular com o servidor. Assim que acessar o aplicativo, será solicitado a hora do servidor para sincronizar o horário do celular. Com essa feature podemos garantir que todos os colaboradores estarão com o mesmo horário em seus respectivos celulares.
  * Checkin: Um colaborador irá efetuar marcar que o atleta compareceu ao evento. O atleta deverá apresentar um documento com foto, que com o CPF/RNE. A consulta do regitrso do atleta será com o número do documento que foi efetuado a inscrição
+ * Checkin sem inscrição: Caso ocorreu algum problema com a inscriação do atleta e o parceiro não a processou, então o colaborador poderá fazer o registro desse atleta
+ * Correção checkin: O Operador pode corrigir o número de peito, nome e data de nascimento do atleta.
  * Cronometragem: Um colaborador fará a captura do tempo exato que o atleta cruzou a linha de chegada, associando ao número de peito do atleta. Esse dado ficará salvo no celular do colaborador para ser enviado em um momento posterior.
+ * Cronometragem divergentes: O colaborador poderá obter todos os atletas que possui mais de uma cronometragem registrada onde o colaborador em questão esteja envolvido. O colaborador poderá corrigir a cronometragem manualmente
  * Envio da cronometragem: O Operador irá enviar todas as informações de cronometragem que registrou para o servidor.
  * Momento da largada: Para os atletas que chegarem pontualmente no evento, todos terão o seu tempo inicial igual. Para os atletas que chegerem atrasados terão o momento de saída captado por um Colaborador.
  * Envio do momento de largada: Todos os momentos de partida capturados devem ser enviados no exato momento da captura.
- * Checkin sem inscrição: Caso ocorreu algum problema com a inscriação do atleta e o parceiro não a processou, então o colaborador poderá fazer o registro desse atleta
- * Correção checkin: O Operador pode corrigir o número de peito, nome e data de nascimento do atleta.
- * Cronometragem divergentes: O colaborador poderá obter todos os atletas que possui mais de uma cronometragem registrada onde o colaborador em questão esteja envolvido. O colaborador poderá corrigir a cronometragem manualmente
  * Correção da cronometragem: O colaborador poderá acessar o tempo de chegada de um atleta específico, filtrando pelo número do peito, e alterar o momento da chegada manualmente. O sistema pode aceitar um valor vazio, indicando que o atleta foi desclassificado
  * Classificação: A classificação deve ser calculada no momento da consulta, levando em consideração o momento da chegada subtraindo do inicio da corrida, onde sera obtido o tempo total da corrida. A listagem, deve exibir a posição de cada atleta comparando o tempo total da corrida de cada atleta. A consulta da classificação pode ser filtrada por Sexo, Faixa Etária e Categoria. Sexo será aceito apenas Masculino e Feminino. Faixa Etária serão nos intervalos 6-7, 8-12, 13-15, 16-20, 21-30, 21-40, 41-50 e 61+. Jà as Categoria serão Corrida e Caminhada. A largada terá um limite de tempo permitido para entrar na classificação, o atleta que chegar após o limite permitido não entrará na classificação
  * Configuração: Nessa opção será possível alterar endereço do DNS do back-end
@@ -46,7 +46,13 @@ A solução é um sistema de software que fará a gestão de um evento de corrid
      - [Cadastro dos números de peito](designer/diagrams/features/add_chester_number.md)
      - [Configura números de peito aos atletas](designer/diagrams/features/config_chester_number.md)
      - [Obten número de peito aos atletas](designer/diagrams/features/get_chester_number_athtletes.md)
-   - [Sincronizar hora celular](designer/diagrams/features/sync_hour.md)
+   - Acesso Aplicativo
+     - [Sincronizar hora do celular](designer/diagrams/features/sync_hour.md)
+     - [Sincronizar base local Aplicativo](designer/diagrams/features/sync_local_base_app.md)
+   - Checkin
+     - [Atleta com registro correto](designer/diagrams/features/checkin_record_ok.md)
+     - [Atleta com registro incorreto](designer/diagrams/features/checkin_record_incorrect.md)
+     - [Atleta sem registro](designer/diagrams/features/checkin_record_not_saved.md)
 
 ## Como utilizar as APIs
 Utilize as orientações em [examples CURL](designer/contracts/exemples_curl.md) 
