@@ -44,8 +44,9 @@ A solução é um sistema de software que fará a gestão de um evento de corrid
    - [Obter dados dos inscritos](designer/diagrams/features/get_athletes.md)
    - Número de peito
      - [Cadastro dos números de peito](designer/diagrams/features/add_chester_number.md)
+     - [Obtém números de peito](designer/diagrams/features/get_chester_number.md)
+     - [Exclui números de peito](designer/diagrams/features/delete_chester_number.md)
      - [Configura números de peito aos atletas](designer/diagrams/features/config_chester_number.md)
-     - [Obten número de peito aos atletas](designer/diagrams/features/get_chester_number_athtletes.md)
    - Acesso Aplicativo
      - [Sincronizar hora do celular](designer/diagrams/features/sync_hour.md)
      - [Sincronizar base local Aplicativo](designer/diagrams/features/sync_local_base_app.md)
