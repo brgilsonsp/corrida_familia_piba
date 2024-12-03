@@ -38,7 +38,6 @@ A solução é um sistema de software que fará a gestão de um evento de corrid
  * Enviar classificação para o atleta: Na tela de classificação, pode ser disparado a respectiva classificação para o e-mail de todos os atletas, evidenciando a sua classificação. O Operador deve informar uma mensagem que será enviada no e-mail
 
 ## Diagramas
- - [Fluxo do Evento Visão negócio](designer/diagrams/business_event_flow.md)
  - [Visão Geral](designer/diagrams/conteiner_diagram.md)
  - Detalhes de cada funcionalidade
    - [Obter dados dos inscritos](designer/diagrams/features/get_athletes.md)
