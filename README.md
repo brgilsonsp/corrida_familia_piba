@@ -60,8 +60,7 @@ A solução é um sistema de software que fará a gestão de um evento de corrid
    - [Classificação](designer/diagrams/features/classification.md)
    - [Configuração](designer/diagrams/features/configuration.md)
 
-## Como utilizar as APIs
-Utilize as orientações em [examples CURL](designer/contracts/exemples_curl.md) 
+## Projetos envolvidos
 
-## Executar a aplicação localmente
-Utilize as orientações em [Executar aplicação](./designer/execute_api.md) 
+ - [API](https://github.com/brgilsonsp/corrida_familia_piba_api)
+ - [Front-end](https://github.com/brgilsonsp/corrida_familia_piba_front)
