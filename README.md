@@ -53,6 +53,11 @@ A solução é um sistema de software que fará a gestão de um evento de corrid
      - [Atleta com registro correto](designer/diagrams/features/checkin_record_ok.md)
      - [Atleta com registro incorreto](designer/diagrams/features/checkin_record_incorrect.md)
      - [Atleta sem registro](designer/diagrams/features/checkin_record_not_saved.md)
+   - Cronometragem
+     - [Largada atrasados](designer/diagrams/features/start_lates.md)
+     - [Captura momento chegada](designer/diagrams/features/capture_moment_arrival.md)
+     - [Correção momento chegada](designer/diagrams/features/fix_capture_moment_arrival.md)
+     - [Envia registros chegada](designer/diagrams/features/send_capture_moment_arrival.md)
 
 ## Como utilizar as APIs
 Utilize as orientações em [examples CURL](designer/contracts/exemples_curl.md) 
