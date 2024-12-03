@@ -19,12 +19,19 @@ sequenceDiagram
     API-->>Aplicativo: Dados não encontrados
     Aplicativo-->>Colaborador: Novo registro
     Colaborador->>Atleta: Obtem dados do atleta
-    Colaborador->>Aplicativo: Registra dados do atleta
-    Colaborador->>Aplicativo: Registra número de peito
-    Aplicativo->>API: Registra checkin com registro do atleta
-    API->>DB: Salva registro
-    API-->>Aplicativo: Resultado
-    Aplicativo-->>Colaborador: Resultado
-    Aplicativo->>Aplicativo: Atualiza base local
-    Colaborador-->>Atleta: Entrega número de peito
+    Colaborador->>Aplicativo: Informa dados do atleta
+    Colaborador->>Aplicativo: Informa número de peito
+    Colaborador->>Aplicativo: Registra checkin com cadastro
+    API->>DB: Consulta número de peito
+    alt Núm. peito Ja utilizado
+        DB-->>API: Envia atleta associado ao número de peito
+        API-->>Aplicativo: Atleta associado ao número
+    else
+        Aplicativo->>API: Registra checkin com registro do atleta
+        API->>DB: Salva registro
+        API-->>Aplicativo: Resultado
+        Aplicativo-->>Colaborador: Resultado
+        Aplicativo->>Aplicativo: Atualiza base local
+        Colaborador-->>Atleta: Entrega número de peito
+    end
 ```

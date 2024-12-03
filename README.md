@@ -58,6 +58,8 @@ A solução é um sistema de software que fará a gestão de um evento de corrid
      - [Captura momento chegada](designer/diagrams/features/capture_moment_arrival.md)
      - [Correção momento chegada](designer/diagrams/features/fix_capture_moment_arrival.md)
      - [Envia registros chegada](designer/diagrams/features/send_capture_moment_arrival.md)
+   - [Classificação](designer/diagrams/features/classification.md)
+   - [Configuração](designer/diagrams/features/configuration.md)
 
 ## Como utilizar as APIs
 Utilize as orientações em [examples CURL](designer/contracts/exemples_curl.md) 
