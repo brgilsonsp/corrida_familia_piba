@@ -1,6 +1,6 @@
 ```mermaid
 sequenceDiagram
-    title Envia capturas de registros do momento da chegada
+    title Envia capturas do momento da largada dos atrasados
 
     actor Monitor as Monitor
     participant Aplicativo as Aplicativo

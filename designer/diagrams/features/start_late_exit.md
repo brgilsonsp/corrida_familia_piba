@@ -1,6 +1,6 @@
 ```mermaid
 sequenceDiagram
-    title Registra momento de chegada
+    title Momento de largada atrasado
 
     actor Monitor as Monitor
     participant Aplicativo as Aplicativo
@@ -9,5 +9,6 @@ sequenceDiagram
     Monitor->>Aplicativo: Insere númere de peito
     Monitor->>Aplicativo: Registra momento
     Aplicativo->>DB_LOCAL: Registra momento largada
+    DB_LOCAL-->>Aplicativo: Retorno
     Aplicativo-->>Monitor: Retorno
 ```

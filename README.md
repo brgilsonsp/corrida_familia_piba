@@ -19,19 +19,15 @@ Facilitar o checkin do atleta e a captura do tempo da corrida/caminhada, onde se
 ## Detalhes da solução
 A solução é um sistema de software que fará a gestão de um evento de corrida e/ou caminhada. O software deve fornecer as seguintes funcionalidades com suas respectivas regras:
  * Obter atletas: A solução deve consultar uma API de um parceiro para obter todos os atletas inscritos. Esse processo será efetuado através de uma rotina batch, apenas no back-end
- * Cadastro número de peito: A solução deve cadastrar todos os números de peito disponíveis
- * Configurar número de peito: A solução deve configurar um número de peito para um respectivo atleta e fornecer fornecer um relatório da configuração efetuada
  * Segmentos: A corrida será segmentada por Sexo, Faixa Etária e Categoria. Sexo serão aceitos apenas Masculino e Feminino. Faixa Etária serão nos intervalos 6-7, 8-12, 13-15, 16-20, 21-30, 21-40, 41-50 e 61+. Jà as Categoria serão Corrida e Caminhada.
- * Sincronismo da hora do celular: O colaborador deve sincronizar a data e hora do seu celular com o servidor. Assim que acessar o aplicativo, será solicitado a hora do servidor para sincronizar o horário do celular. Com essa feature podemos garantir que todos os colaboradores estarão com o mesmo horário em seus respectivos celulares.
- * Checkin: Um colaborador irá efetuar marcar que o atleta compareceu ao evento. O atleta deverá apresentar um documento com foto, que com o CPF/RNE. A consulta do regitrso do atleta será com o número do documento que foi efetuado a inscrição
- * Checkin sem inscrição: Caso ocorreu algum problema com a inscriação do atleta e o parceiro não a processou, então o colaborador poderá fazer o registro desse atleta
- * Correção checkin: O Operador pode corrigir o número de peito, nome e data de nascimento do atleta.
- * Cronometragem: Um colaborador fará a captura do tempo exato que o atleta cruzou a linha de chegada, associando ao número de peito do atleta. Esse dado ficará salvo no celular do colaborador para ser enviado em um momento posterior.
- * Cronometragem divergentes: O colaborador poderá obter todos os atletas que possui mais de uma cronometragem registrada onde o colaborador em questão esteja envolvido. O colaborador poderá corrigir a cronometragem manualmente
- * Envio da cronometragem: O Operador irá enviar todas as informações de cronometragem que registrou para o servidor.
- * Momento da largada: Para os atletas que chegarem pontualmente no evento, todos terão o seu tempo inicial igual. Para os atletas que chegerem atrasados terão o momento de saída captado por um Colaborador.
- * Envio do momento de largada: Todos os momentos de partida capturados devem ser enviados no exato momento da captura.
- * Correção da cronometragem: O colaborador poderá acessar o tempo de chegada de um atleta específico, filtrando pelo número do peito, e alterar o momento da chegada manualmente. O sistema pode aceitar um valor vazio, indicando que o atleta foi desclassificado
+ * Sincronismo da hora do celular: O monitor deve sincronizar a data e hora do seu celular com o servidor. Assim que acessar o aplicativo, será solicitado a hora do servidor para sincronizar o horário do celular. Com essa feature podemos garantir que todos os monitores estarão com o mesmo horário em seus respectivos celulares.
+ * Checkin: Um monitor fará o checkin do atleta que compareceu ao evento. O atleta deverá apresentar um documento com foto, como CPF/RNE. A consulta do regitrso do atleta será com o número do documento que foi efetuado a inscrição. No momento do checkin será cadastrado o número de peito que o atleta irá utilizar.O monitor poderá corrigir qualquer campo do cadastro do atleta.
+ * Checkin sem inscrição: Caso ocorreu algum problema com a inscriação do atleta, ou o atleta não efetuou a inscrição préviamente, então o monitor poderá fazer o registro desse atletae cadastrar o número de peito que irá utilizar.
+ * Cronometragem: Iremos capturar o momento da largada geral, a largada de cada atleta que iniciou após a largada geral (iremos chamar de largada atrasada) e o momento que cruzou a linha de chegada. O administrador fará a captura da larga geral. Já a largada atrasada e a linha de chegada será capturada pelo monitor. Tanto a largada atrasada quanto o momento que cruzou a linha de chegada, o monitor irá associar o momento ao número de peito.
+ * Correção da cronometragem: O administrador poderá acessar o tempo de chegada de um atleta específico, filtrando pelo número do peito, e alterar o momento da chegada manualmente. Se for informado um tempo de chegada vazio, então o atleta foi desclassificado
+ * Correção da largada atrasada: O administrador poderá acessar o tempo de largada de um atleta específico, filtrando pelo número do peito, e alterar o momento da largada manualmente. Se for informado um tempo de largada vazio, então será considerado o momento da largada geral
+ * Envio da cronometragem: O monitor irá enviar todas as informações de cronometragem registradas para o servidor de forma assíncrona.
+ * Envio do momento de largada: O monitor irá enviar todas as informações de largadas atradas registradas para o servidor de forma assíncrona
  * Classificação: A classificação deve ser calculada no momento da consulta, levando em consideração o momento da chegada subtraindo do inicio da corrida, onde sera obtido o tempo total da corrida. A listagem, deve exibir a posição de cada atleta comparando o tempo total da corrida de cada atleta. A consulta da classificação pode ser filtrada pela Segmentação. A largada terá um limite de tempo permitido para entrar na classificação, o atleta que chegar após o limite permitido não entrará na classificação
  * Configuração: Nessa opção será possível alterar endereço do DNS do back-end
  * Autenticação. Para o MVP, iremos salvar, direto na base de dados, os colaboradores que poderão acessar a aplicação.
@@ -42,28 +38,23 @@ A solução é um sistema de software que fará a gestão de um evento de corrid
  - [Visão Geral](designer/diagrams/conteiner_diagram.md)
  - Detalhes de cada funcionalidade
    - [Obter dados dos inscritos](designer/diagrams/features/get_athletes.md)
-   - Número de peito
-     - [Cadastro dos números de peito](designer/diagrams/features/add_chester_number.md)
-     - [Obtém números de peito](designer/diagrams/features/get_chester_number.md)
-     - [Exclui números de peito](designer/diagrams/features/delete_chester_number.md)
-     - [Configura números de peito aos atletas](designer/diagrams/features/config_chester_number.md)
    - Acesso Aplicativo
      - [Sincronizar hora do celular](designer/diagrams/features/sync_hour.md)
-     - [Sincronizar base local Aplicativo](designer/diagrams/features/sync_local_base_app.md)
+   - Checkin
+       - [Atleta com registro](designer/diagrams/features/checkin_recorded.md)
+       - [Atleta sem registro](designer/diagrams/features/checkin_record_not_saved.md)
+   - Cronometragem
+       - [Largada atrasados](designer/diagrams/features/start_late_exit.md)
+       - [Corrigir largada](designer/diagrams/features/update_exit.md)
+       - [Enviar largada](designer/diagrams/features/send_capture_moment_exit.md)
+       - [Captura momento chegada](designer/diagrams/features/capture_moment_arrival.md)
+       - [Correção momento chegada](designer/diagrams/features/fix_capture_moment_arrival.md)
+       - [Envia registros chegada](designer/diagrams/features/send_capture_moment_arrival.md)
    - Segmentação
      - [Configurar segmentação](designer/diagrams/features/add_segment.md)
      - [Obter segmentação](designer/diagrams/features/get_segment.md)
      - [Atualizar segmentação](designer/diagrams/features/update_segment.md)
      - [Excluir segmentação](designer/diagrams/features/delete_segment.md)
-   - Checkin
-     - [Atleta com registro correto](designer/diagrams/features/checkin_record_ok.md)
-     - [Atleta com registro incorreto](designer/diagrams/features/checkin_record_incorrect.md)
-     - [Atleta sem registro](designer/diagrams/features/checkin_record_not_saved.md)
-   - Cronometragem
-     - [Largada atrasados](designer/diagrams/features/start_lates.md)
-     - [Captura momento chegada](designer/diagrams/features/capture_moment_arrival.md)
-     - [Correção momento chegada](designer/diagrams/features/fix_capture_moment_arrival.md)
-     - [Envia registros chegada](designer/diagrams/features/send_capture_moment_arrival.md)
    - [Classificação](designer/diagrams/features/classification.md)
    - [Configuração](designer/diagrams/features/configuration.md)
 
