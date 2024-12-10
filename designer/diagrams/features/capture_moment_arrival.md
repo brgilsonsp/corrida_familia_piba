@@ -8,6 +8,6 @@ sequenceDiagram
 
     Monitor->>Aplicativo: Insere númere de peito
     Monitor->>Aplicativo: Registra momento
-    Aplicativo->>DB_LOCAL: Registra momento largada
+    Aplicativo->>DB_LOCAL: Registra momento chegada
     Aplicativo-->>Monitor: Retorno
 ```
