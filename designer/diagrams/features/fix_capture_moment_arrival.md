@@ -8,13 +8,13 @@ sequenceDiagram
     participant DB as Banco de dados
 
     Admin->>Aplicativo: Número de peito do atleta
-    Aplicativo->>API: Consulta registro de captura
+    Aplicativo->>API: Consulta registro de captura GET /cronometragem/chegadas/{numero_peito}
     API->>DB: Consulta registro de captura do atleta
     DB-->>API: Retorno
     API-->>Aplicativo: Retorno
     Aplicativo-->>Admin: Exibe registro
     Admin->>Aplicativo: Altera momento da chegada
-    Aplicativo->>API: Envia correção
+    Aplicativo->>API: Envia correção PUT /cronometragem/chegadas/{numero_peito}
     API->>DB: Atualiza registro corrigido
     API-->>Aplicativo: Retorno
     Aplicativo-->>Admin: Retorno

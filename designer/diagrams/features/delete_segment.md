@@ -6,7 +6,7 @@ sequenceDiagram
     participant API as API
     participant DB as Banco de dados
 
-    Admin->>API: Informa id do registro
+    Admin->>API: Informa id do registro DELETE /segmentos/[id_segmento}
     API->>DB: Remove registro
     DB-->>API: Retorno
     alt Sucesso

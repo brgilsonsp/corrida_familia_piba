@@ -10,13 +10,13 @@ sequenceDiagram
 
     Atleta->>Monitor: Entrega documento
     Monitor->>Aplicativo: Informa documento/nome
-    Aplicativo->>API: Solicita dados
+    Aplicativo->>API: Solicita dados GET /atletas
     API-->>Aplicativo: Sem resultado
     Aplicativo-->>Monitor: Novo Cadastro
     Monitor->>Atleta: Solicita dados
     Atleta-->>Monitor: Informa dados
     Monitor->>Aplicativo: Informa número de peito
-    Aplicativo->>API: Registra dados
+    Aplicativo->>API: Registra dados POST /atletas
     API->>DB: Registra dados
     alt sucesso
         API-->>Aplicativo: Sucesso

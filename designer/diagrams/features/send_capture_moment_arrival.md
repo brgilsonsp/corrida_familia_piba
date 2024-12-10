@@ -11,7 +11,7 @@ sequenceDiagram
     Monitor->>Aplicativo: Envia capturas
     Aplicativo->>DB_LOCAL: Obtem registros
     DB_LOCAL-->>Aplicativo: Retorno
-    Aplicativo->>API: Envia registros
+    Aplicativo->>API: Envia registros POST /cronometragem/chegadas
     loop Para cada registro
         API->>DB: Registra captura
     end

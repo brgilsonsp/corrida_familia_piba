@@ -2,15 +2,15 @@
 sequenceDiagram
     title Adicionar as segmentações e seus respectivos valores
 
-    actor Admin as Administrador
+    actor Client as Cliente
     participant API as API
     participant DB as Banco de dados
 
-    Admin->>API: Envia segmentos
+    Client->>API: Envia segmentos POST /segmentos
     API->>DB: Registra segmentos
     DB-->>API: Retorno
     alt Sucesso
-        API-->>Admin: Sucesso
+        API-->>Client: Sucesso
     else Erro
         API->>DB: Rollback
         API->>DB: Detalhe erro

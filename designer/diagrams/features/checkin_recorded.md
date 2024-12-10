@@ -10,7 +10,7 @@ sequenceDiagram
     
     Atleta->>Monitor: Entrega documento
     Monitor->>Aplicativo: Informa documento/nome
-    Aplicativo->>API: Solicita dados
+    Aplicativo->>API: Solicita dados GET /atletas
     API-->>Aplicativo: Resultado
     Aplicativo-->>Monitor: Dados do atleta
     Monitor->>Atleta: Valida dados
@@ -19,7 +19,7 @@ sequenceDiagram
         Monitor->>Aplicativo: Corrige dados
     end
     Monitor->>Aplicativo: Informa número de peito
-    Aplicativo->>API: Registra dados
+    Aplicativo->>API: Registra dados PUT /atletas/{id_atleta}
     API->>DB: Atualiza dados
     alt sucesso
         API-->>Aplicativo: Sucesso
